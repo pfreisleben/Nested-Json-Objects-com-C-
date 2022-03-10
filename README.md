@@ -1,8 +1,8 @@
-Rest Api simples, criada para testar conceitos de recebimento e retorno de nested JSON, usando C#
+ ##Rest Api simples, criada para testar conceitos de recebimento e retorno de nested JSON, usando C#
 
 
 Na rota do GET é retornado um array de objetos WeatherForecast, possuindo também uma sub classe Teste.
-
+`
 [
   {
     "date": "2022-03-11T16:00:08.3380456-03:00",
@@ -55,7 +55,7 @@ Na rota do GET é retornado um array de objetos WeatherForecast, possuindo tamb�
     }
   }
 ]
-
+`
 
 na rota POST é enviado um nestedJSON, e retornado o mesmo.
 
