@@ -33,7 +33,8 @@ namespace webapiTeste.Controllers
             {
                 Date = DateTime.Now.AddDays(index),
                 TemperatureC = rng.Next(-20, 55),
-                Summary = Summaries[rng.Next(Summaries.Length)]
+                Summary = Summaries[rng.Next(Summaries.Length)],
+                Teste = new Teste { Teste1 = 2, Teste2 = 3}
             })
             .ToArray();
         }
@@ -44,6 +45,17 @@ namespace webapiTeste.Controllers
             Console.WriteLine(weather.Teste.Teste1);
             return weather;
             
+        }
+        [HttpPost("serialize")]
+        public WeatherForecast Serialize([FromBody] dynamic weather)
+        {
+            weather = weather.ToString();
+
+           _logger.LogInformation($"Novo objeto enviado: {weather}");
+            WeatherForecast teste = JsonSerializer.Deserialize<WeatherForecast>(weather);
+            Console.WriteLine(teste.Date);
+            return teste;
+
         }
     }
 }
